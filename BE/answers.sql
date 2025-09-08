@@ -56,7 +56,7 @@ FROM USERS u
 INNER JOIN NOTIFICATIONS n ON n.user_id = u.user_id
 INNER JOIN CAMPAIGN c ON c.campaign_id = n.campaign_id
 WHERE c.campaign_type IN ('email', 'push')
-GROUP BY u.user_id, u.username
+GROUP BY u.user_id
 HAVING COUNT(DISTINCT c.campaign_type) = 2;
 
 --
@@ -119,7 +119,6 @@ WITH UserNotificationCounts AS (
 
 SELECT 
     u.user_id, 
-    u.username, 
     unc.total_notifications
 FROM 
     USERS u
@@ -142,7 +141,6 @@ WITH RankedNotifications AS (
 
 SELECT 
     u.user_id,
-    u.username,
     rn.sent_at AS most_recent_notification_date
 FROM 
     USERS u
