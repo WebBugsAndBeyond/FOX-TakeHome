@@ -1,0 +1,120 @@
+
+main {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 100vw;
+    bottom: calc(100vh - 40px);
+    width: 100vw;
+    height: calc(100vh - 40px - 40px);
+    overflow-y: scroll;
+}
+.main-content__feed-accordion-wrapper {
+    position: relative;
+}
+article {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    border-bottom: black solid 1px;
+}
+article > h1 {
+    font-size: 18px;
+    line-height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    margin: 0;
+}
+article > h1 > button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 24px;
+    border: none;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: transparent;
+    text-align: left;
+}
+article > div {
+    display: grid;
+    opacity: 0;
+    grid-template-rows: 0fr;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+article > div > div {
+    overflow: hidden;
+}
+article > div.expanded {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    padding: 10px;
+}
+article > div > div {
+    display: block;
+    text-align: left;
+}
+article > div > .creator {
+    font-size: 18px;
+}
+article > div > .pub-date {
+    font-size: 18px;
+}
+article > div > .category {
+    font-size: 16px;
+}
+article > div > .link {
+    font-size: 16px;
+}
+article > div .description {
+    font-size: 16px;
+    padding-left: 24px;
+}
+.app-shell__header,
+.app-shell__footer {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 40px;
+    width: 100vw;
+    background-color: darkslategray;
+}
+.app-shell__header {
+    top: 0;
+    bottom: 40px;
+    display: flex;
+    flex-direction: row;
+}
+.app-shell__header > div > h1 {
+    margin: 0;
+    padding: 0;
+}
+.app-shell__header > div {
+    display: flex;
+}
+.app-shell__header > div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
+}
+.app-shell__header__site-title,
+.app-shell__footer__copyright {
+    font-size: 24px;
+    line-height: 30px;
+    color: white;
+}
+.app-shell__footer__copyright {
+    font-size: 16px;
+}
+.app-shell__footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: calc(100vh - 40px);
+    bottom: 100vh;
+}
